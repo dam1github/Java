@@ -2,8 +2,6 @@ package ej_08;
 import java.util.*;
 
 public class EJ_08 {
-	
-	public static int EJ_08_Array[];
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
 		System.out.println("¿Cuantos valores quiere generar?");
