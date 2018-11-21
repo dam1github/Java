@@ -1,8 +1,6 @@
 # Java
 
-Estos son los ejercicios resueltos propuestos por el profesor, para descargarlos podeis darle al boton verde de "Clone or download" y en Download ZIP
-
-Los subo aqui porque en Google Drive tardaria muchisimo en comprimir y subir todo el rato
+Estos son los ejercicios resueltos propuestos por el profesor, para descargarlos podeis darle al boton verde de "Clone or download" y en "Download ZIP"
 
 El codigo de Java se encuentra dentro de [Carpeta del tema]/[Numero de ejercicio].java
 
