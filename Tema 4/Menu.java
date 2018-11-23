@@ -10,7 +10,8 @@ public class Menu {
 	public static Runnable[] methodsArray = {
 		/* Secuencias de control */
 		Menu::exit, Menu::array_de_tamano_n, Menu::array_de_tamano_n_valores_incrementativos, Menu::suma_de_array_n, Menu::array_contenidos_random, Menu::suma_dos_arrays,
-		Menu::buscar_numero_en_array, Menu::array_ordenador_o_no, Menu::array_derecha_izquierda, Menu::contar_pos_neg_cer
+		Menu::buscar_numero_en_array, Menu::rellenar_array_y_check_orden, Menu::array_izquierda_derecha, Menu::positivos_negativos_ceros, Menu::ordenacion_array,
+		Menu::array_bidimensional, Menu::sumar_array_bidimensional
 	};
 	public static String[] methodsNameArray = new String[methodsArray.length];
 	
@@ -20,7 +21,7 @@ public class Menu {
 		separator();
 		option(0, 0);
 		title("Arrays");
-		option(1, 9);
+		option(1, 12);
 		
 		read_option();
 	}
@@ -256,10 +257,10 @@ public class Menu {
 			}
 		}
 	}
-	public static void array_ordenador_o_no() {
-		method_name = "Array ordenado o no";
+	public static void rellenar_array_y_check_orden() {
+		method_name = "Rellenar array y check orden";
 		
-		if(!buildingArray) {
+		if (!buildingArray) {
 			Scanner scan = new Scanner(System.in);
 			System.out.println("¿Cuantos valores quiere introducir?");
 			int arrayLength = scan.nextInt();
@@ -288,8 +289,8 @@ public class Menu {
 		}
 	}
 	
-	public static void array_derecha_izquierda() {
-		method_name = "Print array from left to right and in reverse";
+	public static void array_izquierda_derecha() {
+		method_name = "Array izquierda, derecha";
 		
 		if (!buildingArray) {
 			Scanner scan = new Scanner(System.in);
@@ -315,8 +316,8 @@ public class Menu {
 		System.out.println();
 	}
 	
-	public static void contar_pos_neg_cer() {
-		method_name = "Contar positivos, negativos y ceros";
+	public static void positivos_negativos_ceros() {
+		method_name = "Cantidad de positivos, negativos y ceros";
 		
 		if (!buildingArray) {
 			Scanner scan = new Scanner(System.in);
@@ -334,6 +335,61 @@ public class Menu {
 					negative++;
 			}
 			System.out.print("Hay " + zero + " numeros nulos\nHay " + positive + " numeros positivos\nHay " + negative + " numeros negativos\n");
+		}
+	}
+	public static void ordenacion_array() {
+		method_name = "Ordenacion de array";
+		
+		if (!buildingArray) {
+			Scanner scan = new Scanner(System.in);
+			System.out.println("¿Cuantos valores quiere introducir?");
+			int arrayLength = scan.nextInt();
+			int[] EJ_10_Array = new int[arrayLength];
+
+			for(int i = 0; i < EJ_10_Array.length; i++) {
+				EJ_10_Array[i] = (int)(Math.random() * 100) + 1;
+			}
+
+			System.out.println(Arrays.toString(EJ_10_Array));
+			int temp;
+			for(int j = 0; j < EJ_10_Array.length - 1; j++) {
+				for(int k = 0; k < EJ_10_Array.length - j - 1; k++) {
+					if(EJ_10_Array[k + 1] < EJ_10_Array[k]) {
+						temp = EJ_10_Array[k];
+						EJ_10_Array[k] = EJ_10_Array[k + 1];
+						EJ_10_Array[k + 1] = temp;
+					}
+				}
+			}
+			System.out.println(Arrays.toString(EJ_10_Array));
+		}
+	}
+	public static void array_bidimensional() {
+		method_name = "Array bidimensional";
+		
+		if (!buildingArray) {
+			int[][] EJ_11_Array = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+		
+			for(int i = 0; i < EJ_11_Array.length; i++)
+				System.out.println(Arrays.toString(EJ_11_Array[i]));
+		}
+	}
+	public static void sumar_array_bidimensional() {
+		method_name = "Sumar valores de array bidimensional";
+		
+		if (!buildingArray) {
+			int arraySize = 3, innerArraySize = arraySize, arraySum = 0;
+			int[][] EJ_12_Array = new int[arraySize][innerArraySize];
+
+			for(int i = 0; i < EJ_12_Array.length; i++) {
+				for(int j = 0; j < EJ_12_Array[i].length; j++) {
+					EJ_12_Array[i][j] = (int)(Math.random() * 10) + 1;
+					arraySum += EJ_12_Array[i][j];
+				}
+			}
+			for(int k = 0; k < EJ_12_Array.length; k++)
+				System.out.println((k + 1) + ": " + Arrays.toString(EJ_12_Array[k]));
+			System.out.println("La suma de todos los elementos del array es: " + arraySum);
 		}
 	}
 }
