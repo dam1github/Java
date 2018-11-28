@@ -11,7 +11,7 @@ public class Menu {
 		/* Secuencias de control */
 		Menu::exit, Menu::array_de_tamano_n, Menu::array_de_tamano_n_valores_incrementativos, Menu::suma_de_array_n, Menu::array_contenidos_random, Menu::suma_dos_arrays,
 		Menu::buscar_numero_en_array, Menu::rellenar_array_y_check_orden, Menu::array_izquierda_derecha, Menu::positivos_negativos_ceros, Menu::ordenacion_array,
-		Menu::array_bidimensional, Menu::sumar_array_bidimensional
+		Menu::array_bidimensional, Menu::sumar_array_bidimensional, Menu::suma_posiciones_diagonales, Menu::strings_sevilla, Menu::string_concatenation
 	};
 	public static String[] methodsNameArray = new String[methodsArray.length];
 	
@@ -21,7 +21,9 @@ public class Menu {
 		separator();
 		option(0, 0);
 		title("Arrays");
-		option(1, 12);
+		option(1, 13);
+		title("Strings");
+		option(14, 15);
 		
 		read_option();
 	}
@@ -119,6 +121,8 @@ public class Menu {
 	}
 	
 	// Methods
+	
+	// Arrays
 	public static void exit() {
 		method_name = "Exit";
 
@@ -392,4 +396,53 @@ public class Menu {
 			System.out.println("La suma de todos los elementos del array es: " + arraySum);
 		}
 	}
+	public static void suma_posiciones_diagonales() {
+		method_name = "Suma de posiciones diagonales de un array";
+		
+		if (!buildingArray) {
+			int arraySize = 3, innerArraySize = arraySize, arraySum = 0;
+			int[][] EJ_12_Array = new int[arraySize][innerArraySize];
+
+			for(int i = 0; i < EJ_12_Array.length; i++) {
+				for(int j = 0; j < EJ_12_Array[i].length; j++)
+					EJ_12_Array[i][j] = (int)(Math.random() * 10) + 1;
+			}
+
+			for(int n = 0; n < EJ_12_Array.length; n++)
+				System.out.println(Arrays.toString(EJ_12_Array[n]));
+
+			for(int k = 0; k < EJ_12_Array.length; k++)
+				arraySum += EJ_12_Array[k][k];
+			System.out.println("Suma: " + arraySum);
+		}
+	}
+	
+	// Strings
+	public static void strings_sevilla() {
+		method_name = "String basico";
+		
+		if (!buildingArray) {
+			String sevilla = "Quien fue a Sevilla perdio su silla";
+
+			System.out.println("La letra en la posicion 0 es: " + sevilla.charAt(0));
+			System.out.println("La letra en la posicion 0 es: " + sevilla.charAt(14));
+			System.out.println(sevilla.equals(sevilla));
+			System.out.println("La cadena \"fue\" empieza en la posicion " + sevilla.indexOf("fue"));
+			System.out.println("La longitud de la cadena es " + sevilla.length());
+			System.out.println(sevilla.replace("a", "e"));
+			System.out.println(sevilla.toLowerCase());
+			System.out.println(sevilla.toUpperCase());
+		}
+	}
+	public static void string_concatenation() {
+		method_name = "String concatenation";
+		
+		if (!buildingArray) {
+			String string_1 = "Quien fue a Sevilla perdio su silla";
+			String string_2 = "Y quien fue a Badajoz se lo encontró";
+
+			System.out.println(string_1 + " | " + string_2);
+		}
+	}
+	
 }
