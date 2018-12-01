@@ -11,7 +11,8 @@ public class Menu {
 		/* Secuencias de control */
 		Menu::exit, Menu::array_de_tamano_n, Menu::array_de_tamano_n_valores_incrementativos, Menu::suma_de_array_n, Menu::array_contenidos_random, Menu::suma_dos_arrays,
 		Menu::buscar_numero_en_array, Menu::rellenar_array_y_check_orden, Menu::array_izquierda_derecha, Menu::positivos_negativos_ceros, Menu::ordenacion_array,
-		Menu::array_bidimensional, Menu::sumar_array_bidimensional, Menu::suma_posiciones_diagonales, Menu::strings_sevilla, Menu::string_concatenation
+		Menu::array_bidimensional, Menu::sumar_array_bidimensional, Menu::suma_posiciones_diagonales, Menu::strings_sevilla, Menu::string_concatenation, Menu::print_string,
+		Menu::search_for_string_and_count_matches, Menu::string_first_char, Menu::string_comparison
 	};
 	public static String[] methodsNameArray = new String[methodsArray.length];
 	
@@ -23,7 +24,7 @@ public class Menu {
 		title("Arrays");
 		option(1, 13);
 		title("Strings");
-		option(14, 15);
+		option(14, 19);
 		
 		read_option();
 	}
@@ -442,6 +443,68 @@ public class Menu {
 			String string_2 = "Y quien fue a Badajoz se lo encontró";
 
 			System.out.println(string_1 + " | " + string_2);
+		}
+	}
+	public static void print_string() {
+		method_name = "Imprimir String";
+		
+		if (!buildingArray) {
+			Scanner scan = new Scanner(System.in);
+
+			System.out.println("Introduzca un texto...");
+			String text = scan.nextLine();
+			System.out.println(text);
+		}
+	}
+	public static void search_for_string_and_count_matches() {
+		method_name = "Buscar String y contar las apariciones";
+		
+		if (!buildingArray) {
+			Scanner scan = new Scanner(System.in);
+			System.out.println("Introduzca una cadena...");
+			String text = scan.nextLine();
+
+			System.out.println("Introduzca lo que quiere buscar...");
+			String toLookFor = scan.nextLine();
+
+			int timesFound = 0, textLength = text.length();
+			for(int i = 0; i < textLength; i++) {
+				if(text.indexOf(toLookFor) >= 0) {
+					text = text.substring(text.indexOf(toLookFor) + toLookFor.length());
+					timesFound++;
+				} else
+					continue;
+			}	System.out.println("He encontrado \"" + toLookFor + "\" " + timesFound + " veces");
+		}
+	}
+	public static void string_first_char() {
+		method_name = "Primer caracter de una cadena";
+		
+		if (!buildingArray) {
+			Scanner scan = new Scanner(System.in);
+			System.out.println("Introduzca una cadena...");
+			String text = scan.nextLine();
+
+			System.out.println("La primera letra de la cadena es: " + text.charAt(0));
+		}
+	}
+	public static void string_comparison() {
+		method_name = "Comparacion de cadenas";
+		
+		if (!buildingArray) {
+			Scanner scan = new Scanner(System.in);
+			System.out.println("Introduzca una cadena...");
+			String text = scan.nextLine();
+
+			System.out.println("Introduzca otra cadena...");
+			String text_2 = scan.nextLine();
+
+			if(text.compareTo(text_2) == 0)
+				System.out.println("Las cadenas son iguales");
+			else if(text.compareTo(text_2) > 0) 
+				System.out.println("La cadena (" + text + ") es mayor que la cadena (" + text_2 + ")");
+			else if(text.compareTo(text_2) < 0)
+				System.out.println("La cadena (" + text_2 + ") es mayor que la cadena (" + text + ")");
 		}
 	}
 	
