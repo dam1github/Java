@@ -12,7 +12,7 @@ public class Menu {
 		Menu::exit, Menu::array_de_tamano_n, Menu::array_de_tamano_n_valores_incrementativos, Menu::suma_de_array_n, Menu::array_contenidos_random, Menu::suma_dos_arrays,
 		Menu::buscar_numero_en_array, Menu::rellenar_array_y_check_orden, Menu::array_izquierda_derecha, Menu::positivos_negativos_ceros, Menu::ordenacion_array,
 		Menu::array_bidimensional, Menu::sumar_array_bidimensional, Menu::suma_posiciones_diagonales, Menu::strings_sevilla, Menu::string_concatenation, Menu::print_string,
-		Menu::search_for_string_and_count_matches, Menu::string_first_char, Menu::string_comparison
+		Menu::search_for_string_and_count_matches, Menu::string_first_char, Menu::string_comparison, Menu::equal_strings_or_not, Menu::lastIndexOf_String
 	};
 	public static String[] methodsNameArray = new String[methodsArray.length];
 	
@@ -24,7 +24,7 @@ public class Menu {
 		title("Arrays");
 		option(1, 13);
 		title("Strings");
-		option(14, 19);
+		option(14, 21);
 		
 		read_option();
 	}
@@ -507,5 +507,38 @@ public class Menu {
 				System.out.println("La cadena (" + text_2 + ") es mayor que la cadena (" + text + ")");
 		}
 	}
-	
+	public static void equal_strings_or_not() {
+		method_name = "Cadenas iguales o no";
+		
+		if (!buildingArray) {
+			Scanner scan = new Scanner(System.in);
+			System.out.println("Introduzca una cadena...");
+			String text = scan.nextLine();
+
+			System.out.println("Introduzca otra cadena...");
+			String text_2 = scan.nextLine();
+
+			if(text.equals(text_2))
+				System.out.println("Las cadenas son iguales");
+			else
+				System.out.println("Las cadenas no son iguales");
+		}
+	}
+	public static void lastIndexOf_String() {
+		method_name = "Ultimo caracter en cadena";
+		
+		if (!buildingArray) {
+			Scanner scan = new Scanner(System.in);
+			System.out.println("Introduzca una cadena...");
+			String text = scan.nextLine();
+
+			System.out.println("Introduzca lo que quiere buscar...");
+			String toLookFor = scan.nextLine();
+
+			if(text.lastIndexOf(toLookFor) == -1)
+				System.out.println("No pude encontrar \"" + toLookFor + "\" en la cadena \"" + text + "\"");
+			else
+				System.out.println("\"" + toLookFor + "\" esta en la posicion " + text.lastIndexOf(toLookFor) + " de la cadena \"" + text + "\"");
+		}
+	}
 }
