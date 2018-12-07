@@ -3,14 +3,17 @@ import java.util.*;
 
 public class EJ_22 {
 	public static void main(String[] args) {
-		// Nota: esto no esta testeado, usar con precaucion :]
 		Scanner scan = new Scanner(System.in);
-		String text = "Esta es una cadena";
-		
+		System.out.println("Introduzca una cadena...");
+		String text  = scan.nextLine();
+
 		System.out.println("¿Que letra quiere buscar?");
 		String toLookFor = scan.nextLine();
-		
+
 		int lastPos = text.lastIndexOf(toLookFor);
-		System.out.println("La ultima posicion de \"" + toLookFor + "\" es: " + lastPos);
-  }
+		if(lastPos == -1)
+			System.out.println("No he encontrado \"" + toLookFor + "\" en la cadena");
+		else
+			System.out.println("La ultima posicion de \"" + toLookFor + "\" es: " + lastPos);
+	}
 }

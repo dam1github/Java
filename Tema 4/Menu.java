@@ -12,7 +12,8 @@ public class Menu {
 		Menu::exit, Menu::array_de_tamano_n, Menu::array_de_tamano_n_valores_incrementativos, Menu::suma_de_array_n, Menu::array_contenidos_random, Menu::suma_dos_arrays,
 		Menu::buscar_numero_en_array, Menu::rellenar_array_y_check_orden, Menu::array_izquierda_derecha, Menu::positivos_negativos_ceros, Menu::ordenacion_array,
 		Menu::array_bidimensional, Menu::sumar_array_bidimensional, Menu::suma_posiciones_diagonales, Menu::strings_sevilla, Menu::string_concatenation, Menu::print_string,
-		Menu::search_for_string_and_count_matches, Menu::string_first_char, Menu::string_comparison, Menu::equal_strings_or_not, Menu::lastIndexOf_String
+		Menu::search_for_string_and_count_matches, Menu::string_first_char, Menu::string_comparison, Menu::equal_strings_or_not, Menu::lastIndexOf_String,
+		Menu::lookForLastChar, Menu::removeStringFromText, Menu::lookForCharAndCount, Menu::stringWordCount
 	};
 	public static String[] methodsNameArray = new String[methodsArray.length];
 	
@@ -24,7 +25,7 @@ public class Menu {
 		title("Arrays");
 		option(1, 13);
 		title("Strings");
-		option(14, 21);
+		option(14, 25);
 		
 		read_option();
 	}
@@ -539,6 +540,86 @@ public class Menu {
 				System.out.println("No pude encontrar \"" + toLookFor + "\" en la cadena \"" + text + "\"");
 			else
 				System.out.println("\"" + toLookFor + "\" esta en la posicion " + text.lastIndexOf(toLookFor) + " de la cadena \"" + text + "\"");
+		}
+	}
+	public static void lookForLastChar() {
+		method_name = "Encontrar ultimo caracter";
+		
+		if (!buildingArray) {
+			Scanner scan = new Scanner(System.in);
+			System.out.println("Introduzca una cadena...");
+			String text  = scan.nextLine();
+
+			System.out.println("¿Que letra quiere buscar?");
+			String toLookFor = scan.nextLine();
+
+			int lastPos = text.lastIndexOf(toLookFor);
+			if(lastPos == -1)
+				System.out.println("No he encontrado \"" + toLookFor + "\" en la cadena");
+			else
+				System.out.println("La ultima posicion de \"" + toLookFor + "\" es: " + lastPos);
+		}
+	}
+	public static void removeStringFromText() {
+		method_name = "Eliminar algo de la cadena";
+		
+		if (!buildingArray) {
+			Scanner scan = new Scanner(System.in);
+			System.out.println("Introduzca una cadena...");
+			String text  = scan.nextLine();
+
+			System.out.println("¿De que posicion a que posicion quiere quitar?");
+			System.out.println("Introduzca el primer valor...");
+			int removeFrom = scan.nextInt();
+
+			System.out.println("Introduzca el segundo valor...");
+			int removeUntil = scan.nextInt();
+
+			while(removeFrom > removeUntil) {
+				System.out.println("El primer valor tiene que ser menor que el segundo.");
+				System.out.println("Introduzca el primer valor...");
+				removeFrom = scan.nextInt();
+				System.out.println("Introduzca el segundo valor...");
+				removeUntil = scan.nextInt();
+			}
+			String textPrint = text.substring(0, removeFrom) + text.substring(removeUntil + 1);
+			System.out.println(textPrint);
+		}
+	}
+	public static void lookForCharAndCount() {
+		method_name = "Buscar caracter y mostrar numero de matches";
+		
+		if (!buildingArray) {
+			Scanner scan = new Scanner(System.in);
+			System.out.println("Introduzca una cadena...");
+			String text  = scan.nextLine();
+
+			System.out.println("Introduzca el caracter que quiera buscar...");
+			String toLookFor = scan.nextLine();
+
+			int timesFound = 0;
+			for(int i = 0; i < text.length(); i++)
+				if(toLookFor.equals(String.valueOf(text.charAt(i))))
+					timesFound++;
+
+			System.out.println("He encontrado \"" + toLookFor + "\" " + timesFound + " veces");
+		}
+	}
+	public static void stringWordCount() {
+		method_name = "Contar palabras";
+		
+		if (!buildingArray) {
+			// Solo buscar con espacios, suponemos que la persona escribe correctamente.
+			Scanner scan = new Scanner(System.in);
+			System.out.println("Introduzca una cadena...");
+			String text  = scan.nextLine();
+			String toLookFor = " ";
+
+			int wordCount = 1;
+			for(int i = 0; i < text.length(); i++)
+				if(toLookFor.equals(String.valueOf(text.charAt(i))) && i < text.length() - 1) // i < text.length() - 1, esto se pone para que no cuente si hay un espacio al final...
+					wordCount++;
+			System.out.println(wordCount);
 		}
 	}
 }
