@@ -2,7 +2,6 @@ package ej_01;
 import java.util.*;
 
 public class EJ_01 {
-	
 	public static void main(String[] args) {
 		Account acc_1 = new Account("1", 2); // Creamos una cuenta llamada "1" con 2€ de saldo inicial
 		System.out.println("Dinero en cuenta " + acc_1.getName() + ": " + acc_1.getBalance() + "€");
