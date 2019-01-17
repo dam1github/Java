@@ -6,7 +6,7 @@ public class EJ_02 {
 		Scanner scan = new Scanner(System.in);
 		System.out.println("¿Cuantos alumnos quiere introducir?");
 		int studentsLength = scan.nextInt();
-		Student[] students = new Student[5];
+		Student[] students = new Student[studentsLength];
 	
 		for(int i = 0; i < students.length; i++) {
 			if(i == 0) 
