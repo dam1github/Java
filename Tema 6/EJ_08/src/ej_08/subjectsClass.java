@@ -2,5 +2,19 @@ package ej_08;
 import java.util.*;
 
 public class subjectsClass {
-	// Paso de hacer este ejercicio, está fatal explicado TODO. No se que tengo que hacer.
+	public int subjectID;
+	public String subjectName;
+	
+	public subjectsClass(int subjectID, String subjectName) {
+		this.subjectID = subjectID;
+		this.subjectName = subjectName;
+	}
+	
+	public int getSubjectID() {
+		return subjectID;
+	}
+	
+	public String getSubjectName() {
+		return subjectName;
+	}
 }
