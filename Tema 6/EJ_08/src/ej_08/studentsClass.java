@@ -73,14 +73,13 @@ public class studentsClass {
 		for(int j = 0; j < studentSubjects.size(); j++) {
 			for(int k = 0; k < 2; k++) {
 				if(k == 0) {
-				//	System.out.println("Introduzca el ID de la asignatura " + (j + 1));
 					for(int l = 0; l < subjects.length; l++) {
 						System.out.print("(" + subjects[l].getSubjectName() + " | ID: " + subjects[l].getSubjectID() + ")");
 					}	System.out.println();
 					studentSubjects.get(j).add(scan.nextInt()); // I need to get the subject ID
 				}
 				else {
-					System.out.println("Introduzca la nota de la asignatura " + (subjects[subjects[j].getSubjectID()].getSubjectName()));
+					System.out.println("Introduzca la nota de la asignatura " + (subjects[studentSubjects.get(j).get(0)].getSubjectName()));
 					studentSubjects.get(j).add((int)(scan.nextDouble())); // I need to get the subjectGrade
 				}
 			}
