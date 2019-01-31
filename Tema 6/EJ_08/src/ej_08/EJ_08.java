@@ -26,9 +26,5 @@ public class EJ_08 {
 				separator = "";
 			System.out.print(subjects[Juan.studentSubjects.get(j).get(0)].getSubjectName() + " con un " + Juan.studentSubjects.get(j).get(1) + separator); // Nombre de la asignatura
 		}	System.out.println();
-		
-		
-		// Esto es lo que le voy a pasar -> [[0, 10], [1, 5]]
-	//	studentsClass("Juan", [[0, 10], [1, 5]])
 	}
 }
