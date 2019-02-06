@@ -6,10 +6,10 @@ public class EJ_11 {
 		ArrayList<Book> bookList = new ArrayList<>();
 		
 		// Manually added books, comment them if you want to add the manually.
-		addBook(bookList, "Shakespeare", 646846541, 10);
-		addBook(bookList, "Librico", 41651, 12.95);
-		addBook(bookList, "El otro saltamontes", 23135186, 11.99);
-		addBook(bookList, "Como matar a un profesor de matematicas", 1661849884, 1.99);
+		addBook(bookList, "Shakespeare", 646846541, 10, "Santiago", "Rivera", 29, "Spain", "51703895X");
+		addBook(bookList, "Librico", 41651, 12.95, "Horaz", "Muro", 22, "Spain", "85445351Y");
+		addBook(bookList, "El otro saltamontes", 23135186, 11.99, "Robertino", "Abrego", 49, "Spain", "90891897Z");
+		addBook(bookList, "Como matar a un profesor de matematicas", 1661849884, 1.99, "Diana", "Fonseca", 30, "Spain", "20478725P");
 		
 		execOption(bookList, listOptions());
 	}
@@ -53,8 +53,8 @@ public class EJ_11 {
 		
 		execOption(bookList, listOptions());
 	}
-	public static void addBook(ArrayList<Book> bookList, String bookName, long bookISBN, double bookPrice) {
-		bookList.add(new Book(bookName, bookISBN, bookPrice));
+	public static void addBook(ArrayList<Book> bookList, String bookName, long bookISBN, double bookPrice, String authorName, String authorSurname, int authorAge, String authorNationality, String AuthorIDNumber) {
+		bookList.add(new Book(bookName, bookISBN, bookPrice, new Author(authorName, authorSurname, authorAge, authorNationality, AuthorIDNumber)));
 	}
 	public static void removeBook(ArrayList<Book> bookList) {
 		System.out.println("Enter the ID of the book you want to remove...");
@@ -72,7 +72,7 @@ public class EJ_11 {
 		
 		for(int i = 0; i < bookList.size(); i++) {
 			if(bookList.get(i).getBookName().contains(bookToLookFor)) {
-				System.out.println("ID: " + i + " | Name: " + bookList.get(i).getBookName() + " | ISBN: " + bookList.get(i).getBookISBN() + " | Price: " + bookList.get(i).getBookPrice());
+				System.out.println("ID: " + i + " | Name: " + bookList.get(i).getBookName() + " | ISBN: " + bookList.get(i).getBookISBN() + " | Price: " + bookList.get(i).getBookPrice() + " | Author: " + bookList.get(i).getBookAuthor().getAuthorFullName() + " | Author age: " + bookList.get(i).getBookAuthor().getAuthorAge() + " | Author nationality: " + bookList.get(i).getBookAuthor().getAuthorNationality() + " | Author ID: " + bookList.get(i).getBookAuthor().getAuthorIDNumber());
 			}
 		}
 		
@@ -80,7 +80,7 @@ public class EJ_11 {
 	}
 	public static void listAllBooks(ArrayList<Book> bookList) {
 		for(int i = 0; i < bookList.size(); i++) {
-			System.out.println("ID: " + i + " | Name: " + bookList.get(i).getBookName() + " | ISBN: " + bookList.get(i).getBookISBN() + " | Price: " + bookList.get(i).getBookPrice());
+			System.out.println("ID: " + i + " | Name: " + bookList.get(i).getBookName() + " | ISBN: " + bookList.get(i).getBookISBN() + " | Price: " + bookList.get(i).getBookPrice() + " | Author: " + bookList.get(i).getBookAuthor().getAuthorFullName() + " | Author age: " + bookList.get(i).getBookAuthor().getAuthorAge() + " | Author nationality: " + bookList.get(i).getBookAuthor().getAuthorNationality() + " | Author ID: " + bookList.get(i).getBookAuthor().getAuthorIDNumber());
 		}
 	}
 }
