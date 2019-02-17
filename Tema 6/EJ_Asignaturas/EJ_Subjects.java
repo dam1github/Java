@@ -5,7 +5,7 @@ public class EJ_Subjects {
 	public static void main(String[] args) {
 		/**
 		 *	Structure of Student's constructor: Student(studentName, studentSurname, studentAge, studentSubjectsQuantity) 
-		 *	This file does not contain any way to prevent errors, it was made at 1AM ^‿^
+		 *	This file does not have any way to prevent errors, it was made at 1AM ^‿^
 		 */
 		
 		Student studentsArray[] = {
